@@ -25,9 +25,10 @@ public class CollectionToMap {
                                         spl[1], spl[2], spl[3], Integer.parseInt(spl[4]));
                             })
                             .collect(Collectors.toMap(
-                                    x -> String.valueOf(new Random().nextInt()), x -> x));
+                                    x -> String.valueOf(new Random().nextInt())+" \\ "+ x.getPlayerID(),
+                                    x -> x));
             System.out.println(map);
-            map.forEach((k, v) -> System.out.println(k + ":" + v));
+            map.forEach((k, v) -> System.out.println(k + " : " + v));
 
         } catch (IOException e) {
             e.printStackTrace();

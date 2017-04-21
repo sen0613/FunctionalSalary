@@ -15,7 +15,8 @@ import java.util.OptionalDouble;
 public class FunctionalSalaryMain {
     public static void main(String[] args) {
 
-        List<Salary> list = FunctionalSalaryService.generateServiceList("src\\Salaries.csv");
+        List<Salary> list = FunctionalSalaryService
+                .generateServiceList("src\\Salaries.csv");
 
 //        1. 1900년대 평균 연봉(1985~1999)
         OptionalDouble avgOf1900s =
@@ -44,15 +45,15 @@ public class FunctionalSalaryMain {
         }
 
 //        3. 최상위연봉자 10명의 평균
-        OptionalDouble AvgOfTopTenSalary =
+        OptionalDouble avgOfTopTenSalary =
                 list.stream()
                 .sorted((x,y) -> y.getSalary() - x.getSalary())
                 .limit(10)
                 .mapToInt(x -> x.getSalary())
                 .average();
 
-        if(avgOf1900s.isPresent()) {
-            System.out.printf("최상위연봉자 10명의 평균 연봉은 %.2f달러 입니다.\n",AvgOfTopTenSalary.getAsDouble());
+        if(avgOfTopTenSalary.isPresent()) {System.out.printf("최상위연봉자 10명의 평균 연봉은 %.2f달러 입니다.\n",avgOfTopTenSalary
+                    .getAsDouble());
         } else {
             System.out.println("no data");
         }

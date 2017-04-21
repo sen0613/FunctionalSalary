@@ -6,6 +6,8 @@ import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Random;
+import java.util.function.Function;
+import java.util.function.IntUnaryOperator;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
@@ -40,9 +42,10 @@ public class StreamDemo {
                             .forEach(System.out::println);
 
             Random ra = new Random();
-            ra.ints(1,6)
-                    .limit(100000)
-                    .forEach(System.out::println);
+            boolean b = ra.ints(1,6)
+                    .limit(1000000000)
+                    .collect(Collectors.groupingBy().equals(1)));
+                    System.out.println(ra);
 
 
         } catch (IOException e) {

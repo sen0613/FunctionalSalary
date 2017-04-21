@@ -18,14 +18,16 @@ public class FunctionalSalaryService {
 
         List<Salary> list = new ArrayList<>();
         try{
-            BufferedReader br = new BufferedReader(new FileReader(filename));
+            BufferedReader br = new BufferedReader(
+                    new FileReader(filename));
             String line = "";
             br.readLine(); //skip the first line
             while ((line = br.readLine()) != null) {
                 String[] spl = line.split(",");
 
-                LocalDate d = LocalDate.of(Integer.parseInt(spl[0]),1,1);
-                list.add(new Salary(d, spl[1], spl[2], spl[3], Integer.parseInt(spl[4])));
+                LocalDate d = LocalDate.of(Integer.parseInt(spl[0]), 1,1);
+                list.add(new Salary(d, spl[1], spl[2], spl[3],
+                        Integer.parseInt(spl[4])));
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();

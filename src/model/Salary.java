@@ -14,7 +14,8 @@ public class Salary {
 
     public Salary () {}
 
-    public Salary(LocalDate yearID, String teamID, String lgID, String playerID, int salary) {
+    public Salary(LocalDate yearID, String teamID,
+                  String lgID, String playerID, int salary) {
         this.yearID = yearID;
         this.teamID = teamID;
         this.lgID = lgID;
